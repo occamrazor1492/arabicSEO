@@ -1,0 +1,74 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import CTASection from "../../components/CTASection.astro";
+
+const pageTitle = "مزيل عرق عود ومسک | عطور شرقية فاخرة";
+const pageDescription = "مزيل عرق بروائح عود ومسک مستوحاة من العطور الشرقية الفاخرة بتركيبات تدوم طويلًا.";
+const faqItems = [
+  {
+    question: "هل العود والمسک مناسبان لمزيل العرق اليومي؟",
+    answer: "نوازن بين قوة العطر وثباته مع مكونات لطيفة للاستخدام اليومي." 
+  },
+  {
+    question: "كيف يمكن تخصيص الرائحة؟",
+    answer: "نقدم مزيجًا من العود الطبيعي والمسك الأبيض والروائح الشرقية حسب السوق المستهدف." 
+  }
+];
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "مزيل عرق بعود ومسک",
+  description: "تركيبة فاخرة بعطور شرقية تدوم طويلاً ومناسبة للأسواق الخليجية.",
+  brand: {
+    "@type": "Brand",
+    name: "مصنع الشرق الأوسط"
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    lowPrice: "4.5",
+    highPrice: "12.0",
+    priceCurrency: "USD",
+    offerCount: "4"
+  }
+};
+---
+<MainLayout title={pageTitle} description={pageDescription} canonical="/deodorant/oud-musk/">
+  <section class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+    <h1 class="text-3xl font-bold text-primary-700">مزيل عرق بروائح العود والمسک</h1>
+    <p class="mt-4 text-sm leading-relaxed text-slate-600">
+      العود والمسک هما رمزا الفخامة في الخليج. نقدم تركيبات مزيل عرق تمزج بين عطور شرقية تدوم طويلًا وإحساس
+      بالنظافة طوال اليوم، مع خيارات تعبئة مناسبة للفئات الراقية.
+    </p>
+  </section>
+
+  <section class="mt-10 prose prose-slate max-w-none">
+    <h2>عطور شرقية تناسب السوق الخليجي</h2>
+    <p>
+      نعتمد على خلاصات عود طبيعية ومسك أبيض عالي الجودة لإنتاج مزيلات عرق ذات رائحة مميزة، مع إمكانية إضافة
+      نوتات عنبر أو ورد طائفي لتمييز العلامة التجارية.
+    </p>
+  </section>
+
+  <section class="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h3 class="text-lg font-bold text-primary-700">ميزة B2B</h3>
+    <p class="mt-2 text-sm text-slate-600">
+      أطلق خط مزيل عرق فاخر بروائح عود ومسک مع دعم كامل للتغليف الفاخر والشحن السريع.
+    </p>
+  </section>
+
+  <section class="mt-10">
+    <FAQAccordion items={faqItems} />
+  </section>
+
+  <section class="mt-10">
+    <CTASection
+      title="اصنع مزيل عرق فاخر بروائح شرقية"
+      description="نساعدك في اختيار العطور الشرقية وتصميم عبوات فاخرة لأسواق الخليج."
+    />
+  </section>
+
+  <script type="application/ld+json">
+    {JSON.stringify(productSchema)}
+  </script>
+</MainLayout>

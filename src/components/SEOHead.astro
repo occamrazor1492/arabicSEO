@@ -1,0 +1,23 @@
+---
+const {
+  title = "مصنع مزيل عرق في الشرق الأوسط",
+  description = "مصنع مزيل عرق متخصص في التصنيع الخاص والتوزيع بالجملة مع تركيز على الجودة والمعايير الخليجية.",
+  canonical = "",
+  ogImage = "/og-image.jpg"
+} = Astro.props;
+const siteUrl = Astro.site ?? "https://example.com";
+const canonicalUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
+const ogUrl = canonicalUrl;
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={ogUrl} />
+<meta property="og:image" content={`${siteUrl}${ogImage}`} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
