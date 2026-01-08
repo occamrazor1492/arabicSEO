@@ -1,0 +1,93 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import CTASection from "../../components/CTASection.astro";
+
+const pageTitle = "دليل مزيل عرق شامل | التصنيع والأنواع";
+const pageDescription = "دليل شامل عن أنواع مزيل العرق والتصنيع الخاص للسوق الخليجي مع روابط لأفضل التركيبات.";
+const faqItems = [
+  {
+    question: "ما الفرق بين مزيل العرق ومضاد التعرق؟",
+    answer: "مزيل العرق يركز على مقاومة الروائح بينما مضاد التعرق يقلل إفراز العرق بمكونات فعالة."
+  },
+  {
+    question: "هل يمكن تخصيص الروائح للأسواق الخليجية؟",
+    answer: "نعم، نطور تركيبات بروائح عود ومسک وروائح شرقية تناسب ذوق المستهلك الخليجي."
+  },
+  {
+    question: "ما هي خيارات التصنيع الخاص المتاحة؟",
+    answer: "نوفر تصميم تركيبة، اختبار جودة، تعبئة وتغليف، وشحن للمتاجر والأسواق." 
+  }
+];
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "مزيل عرق احترافي للتصنيع الخاص",
+  description: "منتجات مزيل عرق قابلة للتخصيص بتركيبات وروائح متعددة للأسواق الخليجية.",
+  brand: {
+    "@type": "Brand",
+    name: "مصنع الشرق الأوسط"
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    lowPrice: "2.5",
+    highPrice: "8.5",
+    priceCurrency: "USD",
+    offerCount: "5"
+  }
+};
+---
+<MainLayout title={pageTitle} description={pageDescription} canonical="/deodorant/">
+  <section class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+    <h1 class="text-3xl font-bold text-primary-700">Comprehensive Guide to Deodorant Manufacturing & Types</h1>
+    <p class="mt-4 text-sm leading-relaxed text-slate-600">
+      نقدم في هذا الدليل نظرة شاملة على أنواع مزيلات العرق، الفوائد، وأفضل الطرق لتطوير المنتجات التي تلبي
+      احتياجات المستهلكين في الشرق الأوسط مع التزام كامل بالمعايير الصحية والجودة.
+    </p>
+  </section>
+
+  <section class="mt-10 grid gap-6 md:grid-cols-3">
+    {[
+      {
+        title: "مزيل عرق للتفتيح",
+        desc: "تركيبات مع فيتامين سي ومستخلص عرق السوس لتفتيح الإبط.",
+        link: "/deodorant/whitening/"
+      },
+      {
+        title: "عود ومسک",
+        desc: "روائح شرقية فاخرة تدوم طويلاً للسوق الخليجي.",
+        link: "/deodorant/oud-musk/"
+      },
+      {
+        title: "طبيعي وخالي من الألمنيوم",
+        desc: "مكونات نباتية بدون أملاح الألمنيوم.",
+        link: "/deodorant/natural/"
+      }
+    ].map((card) => (
+      <a class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md" href={card.link}>
+        <h3 class="text-lg font-bold text-primary-700">{card.title}</h3>
+        <p class="mt-2 text-sm text-slate-600">{card.desc}</p>
+      </a>
+    ))}
+  </section>
+
+  <section class="mt-10 prose prose-slate max-w-none">
+    <h2>أنواع مزيل العرق الأكثر طلبًا</h2>
+    <p>
+      يشمل السوق الخليجي خيارات متعددة من مزيلات العرق، مثل المنتجات الطبية، المنتجات المعطرة بالعود، وخيارات
+      طبيعية تناسب البشرة الحساسة. نقدم في مصنعنا خطوط إنتاج مرنة لتغطية احتياجات التجزئة والتوزيع.
+    </p>
+  </section>
+
+  <section class="mt-10">
+    <FAQAccordion items={faqItems} />
+  </section>
+
+  <section class="mt-10">
+    <CTASection title="جاهز لإطلاق خط مزيل عرق ناجح؟" />
+  </section>
+
+  <script type="application/ld+json">
+    {JSON.stringify(productSchema)}
+  </script>
+</MainLayout>
