@@ -1,0 +1,60 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const pages = [
+  { title: "الرئيسية", url: "/" },
+  { title: "المدونة", url: "/blog/" },
+  { title: "دليل مزيل العرق", url: "/deodorant/" },
+  { title: "مزيل عرق طبيعي", url: "/deodorant/natural/" },
+  { title: "مزيل عرق عود ومسك", url: "/deodorant/oud-musk/" },
+  { title: "مزيل عرق للتفتيح", url: "/deodorant/whitening/" },
+  { title: "التصنيع الخاص والتواصل", url: "/contact/" }
+];
+
+const blogPosts = [
+  { title: "كيفية بناء سلسلة توريد موثوقة لمزيلات العرق الصناعية", url: "/blog/industrial-deodorant-supply/" },
+  { title: "اتجاهات روائح مزيل العرق في الخليج 2025", url: "/blog/gulf-fragrance-trends/" },
+  { title: "دليل إطلاق علامة خاصة لمزيل العرق خلال 90 يومًا", url: "/blog/private-label-deodorant-launch/" },
+  { title: "مزيل العرق أم مضاد التعرق: متى تختار كل خيار؟", url: "/blog/antiperspirant-vs-deodorant/" },
+  { title: "خيارات مزيل عرق خالية من الألومنيوم للأسواق الحساسة", url: "/blog/aluminum-free-options/" },
+  { title: "رول أون أم سبراي أم ستيك: اختيار الشكل الأنسب لعلامتك", url: "/blog/format-comparison-rollon-spray-stick/" },
+  { title: "قائمة جاهزية تصدير مزيلات العرق للأسواق الخليجية والعالمية", url: "/blog/export-compliance-checklist/" },
+  { title: "تركيبات مزيل عرق للتفتيح الآمن وتوحيد لون البشرة", url: "/blog/whitening-deodorant-formulas/" },
+  { title: "كيفية إثبات ادعاءات مزيل العرق الطبيعي للمستهلك", url: "/blog/natural-claims-proof/" },
+  { title: "تكتيكات عرض مزيلات العرق في المتاجر لزيادة المبيعات", url: "/blog/retail-merchandising-tactics/" }
+];
+
+const pageTitle = "خريطة الموقع | روابط جميع الصفحات والمقالات";
+const pageDescription = "قائمة روابط سريعة لكل صفحات ومقالات الموقع للتحقق والمراجعة.";
+---
+<MainLayout title={pageTitle} description={pageDescription} canonical="/sitemap/">
+  <section class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+    <p class="text-sm font-semibold text-secondary-500">خريطة الموقع</p>
+    <h1 class="mt-2 text-3xl font-bold text-slate-900">كل الصفحات في مكان واحد</h1>
+    <p class="mt-3 text-sm text-slate-600">استخدم الروابط أدناه لفتح كل صفحة أو مقال بسرعة ومراجعتها.</p>
+  </section>
+
+  <section class="mt-8 grid gap-6 md:grid-cols-2">
+    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h2 class="text-lg font-bold text-slate-900">صفحات رئيسية</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        {pages.map((page) => (
+          <li>
+            <a class="text-primary-700 underline hover:text-primary-800" href={page.url}>{page.title}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h2 class="text-lg font-bold text-slate-900">مقالات المدونة (10)</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        {blogPosts.map((post) => (
+          <li>
+            <a class="text-primary-700 underline hover:text-primary-800" href={post.url}>{post.title}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</MainLayout>
