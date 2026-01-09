@@ -1,0 +1,29 @@
+---
+import "../styles/global.css";
+import SEOHead from "../components/SEOHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const { title, description, canonical } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <SEOHead title={title} description={description} canonical={canonical} />
+  </head>
+  <body class="min-h-screen bg-background-50">
+    <Header />
+    <main class="mx-auto max-w-6xl px-4 py-10">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

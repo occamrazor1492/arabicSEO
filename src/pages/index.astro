@@ -1,0 +1,89 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import CTASection from "../components/CTASection.astro";
+
+const pageTitle = "مصنع مزيل عرق رائد في الشرق الأوسط | حلول خاصة وجملة";
+const pageDescription = "مصنع مزيلات عرق معتمد يقدم تصنيعًا خاصًا وتوريدًا بالجملة وتركيبات متقدمة للسوق الخليجي.";
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "مصنع الشرق الأوسط لمزيلات العرق",
+  url: "https://example.com",
+  logo: "https://example.com/logo.png",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+201000000000",
+    contactType: "customer service",
+    areaServed: "ME",
+    availableLanguage: ["Arabic"]
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "جدة",
+    addressCountry: "SA"
+  }
+};
+---
+<MainLayout title={pageTitle} description={pageDescription} canonical="/">
+  <section class="rounded-3xl bg-[linear-gradient(to_right,rgba(15,118,110,0.85),rgba(15,118,110,0.65)),url('https://images.unsplash.com/photo-1581093448795-8f15d3b1a9a1?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center px-6 py-16 text-white shadow-lg">
+    <div class="max-w-2xl">
+      <p class="text-sm font-semibold text-secondary-400">مصنع موثوق للتصنيع الخاص</p>
+      <h1 class="mt-4 text-3xl font-bold leading-snug md:text-4xl">
+        المصنع الرائد لمزيلات العرق في الشرق الأوسط
+      </h1>
+      <p class="mt-4 text-base text-white/90">
+        حلول متكاملة لتطوير مزيلات العرق من الفكرة حتى رفوف البيع بالتجزئة والأسواق الخليجية.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a class="rounded-full bg-white px-6 py-3 text-sm font-bold text-primary-700" href="/deodorant/">منتجات (B2C)</a>
+        <a class="rounded-full border border-white px-6 py-3 text-sm font-bold text-white" href="/contact/">صنّع معنا (B2B)</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-12 grid gap-4 md:grid-cols-3">
+    {[
+      { title: "ISO معتمد", desc: "معايير جودة عالمية لضمان الثبات والسلامة." },
+      { title: "SFDA متوافق", desc: "امتثال كامل للهيئة العامة للغذاء والدواء." },
+      { title: "GMP قياسي", desc: "إنتاج وفق أفضل الممارسات التصنيعية." }
+    ].map((item) => (
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h3 class="text-lg font-bold text-primary-700">{item.title}</h3>
+        <p class="mt-2 text-sm text-slate-600">{item.desc}</p>
+      </div>
+    ))}
+  </section>
+
+  <section class="mt-12">
+    <h2 class="text-2xl font-bold text-slate-800">خدماتنا الأساسية</h2>
+    <div class="mt-6 grid gap-6 md:grid-cols-3">
+      {[
+        {
+          title: "التصنيع للعلامات الخاصة",
+          desc: "إطلاق خطوط مزيل عرق بعلامتك التجارية مع دعم التغليف والتسعير."
+        },
+        {
+          title: "التوريد بالجملة",
+          desc: "قدرات إنتاجية عالية لتلبية احتياجات الموزعين والتجزئة."
+        },
+        {
+          title: "تطوير التركيبات",
+          desc: "فريق بحث وتطوير لتخصيص الروائح والمكونات الفعالة."
+        }
+      ].map((service) => (
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-bold text-primary-700">{service.title}</h3>
+          <p class="mt-2 text-sm text-slate-600">{service.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mt-12">
+    <CTASection />
+  </section>
+
+  <script type="application/ld+json">
+    {JSON.stringify(orgSchema)}
+  </script>
+</MainLayout>

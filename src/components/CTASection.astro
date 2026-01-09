@@ -1,0 +1,19 @@
+---
+const {
+  title = "ابدأ علامتك التجارية الخاصة الآن",
+  description = "نقدم دعمًا شاملاً لتطوير التركيبات والتغليف والتوريد السريع للأسواق الخليجية.",
+  ctaLabel = "ابدأ التصنيع معنا",
+  ctaLink = "/contact/"
+} = Astro.props;
+---
+<section class="rounded-2xl bg-primary-700 px-6 py-10 text-white shadow-lg">
+  <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+    <div>
+      <h2 class="text-2xl font-bold">{title}</h2>
+      <p class="mt-2 text-sm text-white/90">{description}</p>
+    </div>
+    <a class="inline-flex items-center justify-center rounded-full bg-secondary-400 px-6 py-3 text-sm font-bold text-slate-900 shadow-md" href={ctaLink}>
+      {ctaLabel}
+    </a>
+  </div>
+</section>

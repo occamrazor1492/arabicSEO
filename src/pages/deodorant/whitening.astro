@@ -1,0 +1,74 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import CTASection from "../../components/CTASection.astro";
+
+const pageTitle = "مزيل عرق للتفتيح | تفتيح الإبط بفيتامين سي";
+const pageDescription = "تركيبات مزيل عرق للتفتيح بفيتامين سي ومستخلص عرق السوس لتفتيح الإبط بأمان.";
+const faqItems = [
+  {
+    question: "هل تفتيح الإبط آمن مع مزيل العرق؟",
+    answer: "نستخدم تركيزات مدروسة من فيتامين سي ومستخلص عرق السوس لتفتيح لطيف وآمن."
+  },
+  {
+    question: "ما المكونات الأكثر فعالية للتفتيح؟",
+    answer: "فيتامين سي، عرق السوس، والنياسيناميد من الخيارات الأكثر طلبًا في السوق." 
+  }
+];
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "مزيل عرق للتفتيح بفيتامين سي",
+  description: "تركيبة تفتيح الإبط مع مستخلص عرق السوس وفيتامين سي للاستخدام اليومي.",
+  brand: {
+    "@type": "Brand",
+    name: "مصنع الشرق الأوسط"
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    lowPrice: "3.0",
+    highPrice: "9.0",
+    priceCurrency: "USD",
+    offerCount: "3"
+  }
+};
+---
+<MainLayout title={pageTitle} description={pageDescription} canonical="/deodorant/whitening/">
+  <section class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+    <h1 class="text-3xl font-bold text-primary-700">مزيل عرق للتفتيح وإشراقة الإبط</h1>
+    <p class="mt-4 text-sm leading-relaxed text-slate-600">
+      يبحث المستهلكون في الشرق الأوسط عن حلول تجمع بين مقاومة الروائح وتفتيح الإبط. نطور تركيبات تجمع بين
+      فيتامين سي وعرق السوس لتحقيق نتائج تدريجية مع حماية البشرة.
+    </p>
+  </section>
+
+  <section class="mt-10 prose prose-slate max-w-none">
+    <h2>تفتيح الإبط بفيتامين سي</h2>
+    <p>
+      يساعد فيتامين سي على توحيد اللون وتقليل التصبغات، بينما يعمل مستخلص عرق السوس على تهدئة البشرة وتقليل
+      التهيج الناتج عن إزالة الشعر. نحن نوفر توازنًا مثاليًا بين العناية والرائحة المنعشة.
+    </p>
+  </section>
+
+  <section class="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h3 class="text-lg font-bold text-primary-700">ميزة B2B</h3>
+    <p class="mt-2 text-sm text-slate-600">
+      هل ترغب في إطلاق علامتك التجارية الخاصة لمزيل عرق تفتيح؟ لدينا التركيبة الجاهزة ودعم كامل للتغليف.
+    </p>
+  </section>
+
+  <section class="mt-10">
+    <FAQAccordion items={faqItems} />
+  </section>
+
+  <section class="mt-10">
+    <CTASection
+      title="أطلق مزيل عرق تفتيح بعلامتك التجارية"
+      description="فريقنا يقدم لك تركيبة مع فيتامين سي، تصميم عبوة، وخطة إطلاق متكاملة."
+    />
+  </section>
+
+  <script type="application/ld+json">
+    {JSON.stringify(productSchema)}
+  </script>
+</MainLayout>

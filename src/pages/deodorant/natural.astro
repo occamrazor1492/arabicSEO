@@ -1,0 +1,74 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import FAQAccordion from "../../components/FAQAccordion.astro";
+import CTASection from "../../components/CTASection.astro";
+
+const pageTitle = "مزيل عرق طبيعي وخالي من الألمنيوم";
+const pageDescription = "تركيبات مزيل عرق طبيعية وخالية من الألمنيوم تناسب البشرة الحساسة والاتجاه الصحي.";
+const faqItems = [
+  {
+    question: "هل مزيل العرق الطبيعي فعال؟",
+    answer: "نستخدم مكونات نباتية مع عوامل مقاومة للرائحة لضمان فعالية تدوم طوال اليوم."
+  },
+  {
+    question: "ما أبرز المكونات الطبيعية؟",
+    answer: "بيكربونات الصوديوم، زيت جوز الهند، وزيوت عطرية طبيعية مفضلة في السوق." 
+  }
+];
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "مزيل عرق طبيعي خالي من الألمنيوم",
+  description: "مزيل عرق طبيعي بمكونات نباتية وخالي من أملاح الألمنيوم.",
+  brand: {
+    "@type": "Brand",
+    name: "مصنع الشرق الأوسط"
+  },
+  offers: {
+    "@type": "AggregateOffer",
+    lowPrice: "3.5",
+    highPrice: "10.0",
+    priceCurrency: "USD",
+    offerCount: "3"
+  }
+};
+---
+<MainLayout title={pageTitle} description={pageDescription} canonical="/deodorant/natural/">
+  <section class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+    <h1 class="text-3xl font-bold text-primary-700">مزيل عرق طبيعي وخالي من الألمنيوم</h1>
+    <p class="mt-4 text-sm leading-relaxed text-slate-600">
+      الطلب على مزيل عرق طبيعي وخالي من الألمنيوم يتزايد في المنطقة. نوفر تركيبات نباتية لطيفة على البشرة مع
+      حماية من الروائح لتلبية احتياجات العملاء الباحثين عن حلول صحية.
+    </p>
+  </section>
+
+  <section class="mt-10 prose prose-slate max-w-none">
+    <h2>اتجاه طبيعي يناسب المستهلكين الواعين</h2>
+    <p>
+      المنتجات الطبيعية تعتمد على مكونات مثل الزيوت النباتية، النشأ الطبيعي، ومواد مضادة للبكتيريا بشكل لطيف.
+      نوفر أيضًا خيارات خالية من العطور أو بعطور نباتية خفيفة.
+    </p>
+  </section>
+
+  <section class="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h3 class="text-lg font-bold text-primary-700">ميزة B2B</h3>
+    <p class="mt-2 text-sm text-slate-600">
+      إذا كنت تستهدف فئة المنتجات الصحية، يمكننا تجهيز خط طبيعي متكامل مع شهادات مطابقة.
+    </p>
+  </section>
+
+  <section class="mt-10">
+    <FAQAccordion items={faqItems} />
+  </section>
+
+  <section class="mt-10">
+    <CTASection
+      title="اصنع مزيل عرق طبيعي يحمل علامتك"
+      description="تركيبات خالية من الألمنيوم مع خيارات عطور نباتية وتعبئة صديقة للبيئة."
+    />
+  </section>
+
+  <script type="application/ld+json">
+    {JSON.stringify(productSchema)}
+  </script>
+</MainLayout>
