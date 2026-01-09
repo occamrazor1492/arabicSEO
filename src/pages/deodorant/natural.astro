@@ -13,8 +13,25 @@ const faqItems = [
   {
     question: "ما أبرز المكونات الطبيعية؟",
     answer: "بيكربونات الصوديوم، زيت جوز الهند، وزيوت عطرية طبيعية مفضلة في السوق." 
+  },
+  {
+    question: "لماذا يفضّل المستهلكون مزيل عرق خالي من الألمنيوم؟",
+    answer: "لتجنب الأملاح الثقيلة والاتجاه نحو منتجات أنظف مع مكونات مفهومة وقوائم INCI قصيرة."
+  },
+  {
+    question: "ما الشهادات التي يمكن توفيرها؟",
+    answer: "GMP، اختبارات ميكروبيولوجية، ودعم شهادات نباتي/خالي من القسوة حسب الحاجة."
   }
 ];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer }
+  }))
+};
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -40,6 +57,14 @@ const productSchema = {
       الطلب على مزيل عرق طبيعي وخالي من الألمنيوم يتزايد في المنطقة. نوفر تركيبات نباتية لطيفة على البشرة مع
       حماية من الروائح لتلبية احتياجات العملاء الباحثين عن حلول صحية.
     </p>
+    <div class="mt-4 overflow-hidden rounded-2xl">
+      <img
+        class="h-56 w-full object-cover"
+        src="/images/natural-hero.webp"
+        alt="مكونات طبيعية لمزيل العرق"
+        loading="lazy"
+      />
+    </div>
   </section>
 
   <section class="mt-10 prose prose-slate max-w-none">
@@ -48,12 +73,36 @@ const productSchema = {
       المنتجات الطبيعية تعتمد على مكونات مثل الزيوت النباتية، النشأ الطبيعي، ومواد مضادة للبكتيريا بشكل لطيف.
       نوفر أيضًا خيارات خالية من العطور أو بعطور نباتية خفيفة.
     </p>
+    <h3>لماذا يختار المستهلك مزيل عرق طبيعي؟</h3>
+    <ul>
+      <li>تجنب أملاح الألمنيوم والبارابين والروائح الصناعية الثقيلة.</li>
+      <li>شفافية قائمة المكونات ووضوح مصدرها النباتي.</li>
+      <li>تفضيل عطور زيوت أساسية خفيفة أو خيارات بدون عطر للبشرة الحساسة.</li>
+    </ul>
   </section>
 
-  <section class="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <section class="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h3 class="text-lg font-bold text-primary-700">مكونات رئيسية وخيارات تركيبة</h3>
+    <div class="mt-3 grid gap-4 md:grid-cols-3 text-sm text-slate-600">
+      <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+        <p class="font-semibold text-primary-700">مضادات رائحة طبيعية</p>
+        <p class="mt-1">بيكربونات الصوديوم بجرعات منخفضة، أكاسيد زنك، وسترات مغنيسيوم بديلة للألومنيوم.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+        <p class="font-semibold text-primary-700">دهون نباتية</p>
+        <p class="mt-1">زيت جوز الهند، زبدة الشيا، وزيت الجوجوبا لترطيب ومنع التهيج.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+        <p class="font-semibold text-primary-700">عطور وزيوت أساسية</p>
+        <p class="mt-1">لافندر، يلانج، نعناع، أو بدون عطر مع الالتزام بحدود IFRA.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
     <h3 class="text-lg font-bold text-primary-700">ميزة B2B</h3>
     <p class="mt-2 text-sm text-slate-600">
-      إذا كنت تستهدف فئة المنتجات الصحية، يمكننا تجهيز خط طبيعي متكامل مع شهادات مطابقة.
+      إذا كنت تستهدف فئة المنتجات الصحية، يمكننا تجهيز خط طبيعي متكامل مع شهادات مطابقة، قوائم مكونات واضحة، وتوسيم صديق للبيئة.
     </p>
   </section>
 
@@ -70,5 +119,8 @@ const productSchema = {
 
   <script type="application/ld+json">
     {JSON.stringify(productSchema)}
+  </script>
+  <script type="application/ld+json">
+    {JSON.stringify(faqSchema)}
   </script>
 </MainLayout>

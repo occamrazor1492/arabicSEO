@@ -13,8 +13,25 @@ const faqItems = [
   {
     question: "كيف يمكن تخصيص الرائحة؟",
     answer: "نقدم مزيجًا من العود الطبيعي والمسك الأبيض والروائح الشرقية حسب السوق المستهدف." 
+  },
+  {
+    question: "ما أكثر الروائح طلبًا في الخليج؟",
+    answer: "عود دهن معتدل، مسك أبيض، مع نوتات عنبر أو ورد طائفي لفصل الشتاء، وروائح حمضية خفيفة للصيف."
+  },
+  {
+    question: "هل يمكن إنتاج أحجام مختلفة للمتاجر الراقية؟",
+    answer: "نعم، نوفر أحجام 50-75 مل للسفر و150 مل للسوبرماركت مع تغليف فاخر للفئات الراقية."
   }
 ];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer }
+  }))
+};
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -40,6 +57,14 @@ const productSchema = {
       العود والمسک هما رمزا الفخامة في الخليج. نقدم تركيبات مزيل عرق تمزج بين عطور شرقية تدوم طويلًا وإحساس
       بالنظافة طوال اليوم، مع خيارات تعبئة مناسبة للفئات الراقية.
     </p>
+    <div class="mt-4 overflow-hidden rounded-2xl">
+      <img
+        class="h-56 w-full object-cover"
+        src="/images/oud-hero.webp"
+        alt="روائح عود ومسک فاخرة"
+        loading="lazy"
+      />
+    </div>
   </section>
 
   <section class="mt-10 prose prose-slate max-w-none">
@@ -48,12 +73,42 @@ const productSchema = {
       نعتمد على خلاصات عود طبيعية ومسك أبيض عالي الجودة لإنتاج مزيلات عرق ذات رائحة مميزة، مع إمكانية إضافة
       نوتات عنبر أو ورد طائفي لتمييز العلامة التجارية.
     </p>
+    <h3>تحليل تفضيلات السوق</h3>
+    <ul>
+      <li>الخليج (GCC): تفضيل عود مركز ومسک أبيض مع ثبات عالٍ يناسب الأجواء الحارة.</li>
+      <li>المواسم: روائح دافئة (عنبر، زعفران) في الشتاء، وروائح حمضية خفيفة في الصيف.</li>
+      <li>الفئة الراقية: عبوات معدنية أو زجاجية بلمسات خشبية/جلدية لتعزيز الإحساس الفاخر.</li>
+    </ul>
+    <h3>اقتراح تركيبات وروائح</h3>
+    <ul>
+      <li>عود + مسك أبيض + فانيليا خفيفة (ثبات طويل وأثر ناعم).</li>
+      <li>عود هندي + عنبر + زعفران (مناسب للشتاء والمناسبات).</li>
+      <li>عود خفيف + حمضيات (برغموت) + فلورال (ياسمين) للصيف والأسفار.</li>
+    </ul>
   </section>
 
-  <section class="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <section class="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h3 class="text-lg font-bold text-primary-700">تخطيط خطوط المنتجات</h3>
+    <div class="mt-3 grid gap-4 md:grid-cols-3 text-sm text-slate-600">
+      <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+        <p class="font-semibold text-primary-700">سوبرماركت</p>
+        <p class="mt-1">أحجام 150-200 مل بروائح عود خفيف ومسک، تغليف اقتصادي مع ثبات جيد.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+        <p class="font-semibold text-primary-700">متاجر راقية</p>
+        <p class="mt-1">عبوات زجاجية أو ألومنيوم مطفي 100 مل، عود مركز ونوتات عنبر/زعفران.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+        <p class="font-semibold text-primary-700">أحجام سفر</p>
+        <p class="mt-1">50-75 مل للرول أون أو السبراي، روائح حمضية مع مسك أبيض للاستخدام اليومي.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
     <h3 class="text-lg font-bold text-primary-700">ميزة B2B</h3>
     <p class="mt-2 text-sm text-slate-600">
-      أطلق خط مزيل عرق فاخر بروائح عود ومسک مع دعم كامل للتغليف الفاخر والشحن السريع.
+      أطلق خط مزيل عرق فاخر بروائح عود ومسک مع دعم كامل للتغليف الفاخر، ضبط IFRA، وشحن سريع للأسواق الخليجية.
     </p>
   </section>
 
@@ -70,5 +125,8 @@ const productSchema = {
 
   <script type="application/ld+json">
     {JSON.stringify(productSchema)}
+  </script>
+  <script type="application/ld+json">
+    {JSON.stringify(faqSchema)}
   </script>
 </MainLayout>

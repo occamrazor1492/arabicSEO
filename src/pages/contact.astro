@@ -1,15 +1,35 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
 import CTASection from "../components/CTASection.astro";
 
 const pageTitle = "تواصل معنا للتصنيع الخاص والجملة";
 const pageDescription = "تواصل مع مصنع مزيل العرق لطلبات التصنيع الخاص والجملة في الشرق الأوسط.";
+const faqItems = [
+  {
+    question: "متى سنحصل على الرد بعد إرسال النموذج؟",
+    answer: "نرد خلال 24 ساعة عمل مع طلب تفاصيل إضافية أو إرسال عرض سعر مبدئي."
+  },
+  {
+    question: "ما الحد الأدنى للطلب للتصنيع الخاص؟",
+    answer: "يبدأ عادة من 5,000 - 10,000 وحدة حسب العبوة والرائحة، مع إمكانية كميات أقل لعينات السوق."
+  }
+];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer }
+  }))
+};
 ---
 <MainLayout title={pageTitle} description={pageDescription} canonical="/contact/">
   <section class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
     <h1 class="text-3xl font-bold text-primary-700">نموذج الاستفسار للتصنيع والجملة</h1>
     <p class="mt-3 text-sm text-slate-600">
-      املأ النموذج لنبدأ بتصميم تركيبة مزيل العرق المناسبة لعلامتك التجارية أو طلبات الجملة.
+      املأ النموذج لنبدأ بتصميم تركيبة مزيل العرق المناسبة لعلامتك التجارية أو طلبات الجملة. نعود إليك خلال 24 ساعة عمل.
     </p>
   </section>
 
@@ -57,6 +77,14 @@ const pageDescription = "تواصل مع مصنع مزيل العرق لطلبا
 
     <aside class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <h2 class="text-lg font-bold text-primary-700">معلومات المصنع</h2>
+      <div class="mt-3 overflow-hidden rounded-2xl">
+          <img
+            class="h-40 w-full object-cover"
+            src="/images/office.webp"
+            alt="واجهة مكتب المبيعات"
+            loading="lazy"
+          />
+      </div>
       <p class="mt-2 text-sm text-slate-600">
         جدة - المنطقة الصناعية الثالثة<br />
         القاهرة - مدينة بدر الصناعية
@@ -71,7 +99,42 @@ const pageDescription = "تواصل مع مصنع مزيل العرق لطلبا
     </aside>
   </section>
 
+  <section class="mt-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+    <h2 class="text-2xl font-bold text-slate-800">خطوات التعاون معنا</h2>
+    <ol class="mt-4 space-y-2 text-sm text-slate-600">
+      <li><span class="font-semibold text-primary-700">1) فهم الاحتياج:</span> تحديد نوع المنتج (رول أون، بخاخ، كريم) والرائحة المستهدفة.</li>
+      <li><span class="font-semibold text-primary-700">2) تطوير التركيبة:</span> إعداد تركيبتين إلى ثلاث لترشيح الأفضل، مع عينات خلال 7-10 أيام.</li>
+      <li><span class="font-semibold text-primary-700">3) التغليف والتسعير:</span> اختيار العبوة، طباعة الملصق، وتأكيد الـ MOQ وخطة التسليم.</li>
+      <li><span class="font-semibold text-primary-700">4) الإنتاج والشحن:</span> تشغيل الخطوط، اختبارات الجودة، تجهيز شهادات التحليل والتصدير.</li>
+    </ol>
+  </section>
+
+  <section class="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+    <h2 class="text-2xl font-bold text-slate-800">لماذا تختارنا</h2>
+    <div class="mt-4 grid gap-4 md:grid-cols-3 text-sm text-slate-600">
+      <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+        <p class="font-semibold text-primary-700">تصنيع معتمد</p>
+        <p class="mt-1">GMP، ISO 22716، امتثال SFDA مع دعم مستندات الاستيراد.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+        <p class="font-semibold text-primary-700">خبرة عطور خليجية</p>
+        <p class="mt-1">روائح عود ومسک وطبيعية بحدود IFRA وثبات مناسب للأجواء الحارة.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+        <p class="font-semibold text-primary-700">سرعة في العينات</p>
+        <p class="mt-1">تسليم عينات خلال 7-10 أيام مع تقرير جودة واختبارات أولية.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-8">
+    <FAQAccordion items={faqItems} />
+  </section>
+
   <section class="mt-10">
     <CTASection title="هل تحتاج إلى عرض سعر سريع؟" description="فريق المبيعات جاهز للرد خلال 24 ساعة." />
   </section>
+  <script type="application/ld+json">
+    {JSON.stringify(faqSchema)}
+  </script>
 </MainLayout>

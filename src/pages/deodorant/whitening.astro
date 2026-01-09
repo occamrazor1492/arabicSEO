@@ -13,8 +13,25 @@ const faqItems = [
   {
     question: "ما المكونات الأكثر فعالية للتفتيح؟",
     answer: "فيتامين سي، عرق السوس، والنياسيناميد من الخيارات الأكثر طلبًا في السوق." 
+  },
+  {
+    question: "ما أنواع البشرة المناسبة لهذه التركيبات؟",
+    answer: "التركيبات الخفيفة تناسب البشرة الحساسة، ويمكن إضافة بانثينول وألوفيرا لتهدئة البشرة بعد إزالة الشعر."
+  },
+  {
+    question: "كم يستغرق ظهور النتائج؟",
+    answer: "عادةً من 2-4 أسابيع من الاستخدام المنتظم، مع نصائح لتقليل الاحتكاك وتجنب العطور القوية للبشرة الحساسة."
   }
 ];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer }
+  }))
+};
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -40,6 +57,14 @@ const productSchema = {
       يبحث المستهلكون في الشرق الأوسط عن حلول تجمع بين مقاومة الروائح وتفتيح الإبط. نطور تركيبات تجمع بين
       فيتامين سي وعرق السوس لتحقيق نتائج تدريجية مع حماية البشرة.
     </p>
+    <div class="mt-4 overflow-hidden rounded-2xl">
+      <img
+        class="h-56 w-full object-cover"
+        src="/images/whitening-hero.webp"
+        alt="مزيل عرق تفتيح مع مكونات طبيعية"
+        loading="lazy"
+      />
+    </div>
   </section>
 
   <section class="mt-10 prose prose-slate max-w-none">
@@ -48,12 +73,45 @@ const productSchema = {
       يساعد فيتامين سي على توحيد اللون وتقليل التصبغات، بينما يعمل مستخلص عرق السوس على تهدئة البشرة وتقليل
       التهيج الناتج عن إزالة الشعر. نحن نوفر توازنًا مثاليًا بين العناية والرائحة المنعشة.
     </p>
+    <h3>آلية العمل والتركيبة</h3>
+    <ul>
+      <li>فيتامين سي (AA2G أو MAP) لتقليل التصبغات بدون تهيج.</li>
+      <li>عرق السوس والنياسيناميد لتثبيط التيروزيناز وتوحيد اللون.</li>
+      <li>بانثينول وألوفيرا لتهدئة البشرة بعد الحلاقة أو الشمع.</li>
+    </ul>
   </section>
 
-  <section class="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+  <section class="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h3 class="text-lg font-bold text-primary-700">لمن تناسب تركيبات التفتيح؟</h3>
+    <div class="mt-3 grid gap-4 md:grid-cols-3 text-sm text-slate-600">
+      <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+        <p class="font-semibold text-primary-700">بشرة حساسة</p>
+        <p class="mt-1">تركيبات خالية من الكحول والعطور القوية مع بانثينول لتقليل الاحمرار.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+        <p class="font-semibold text-primary-700">بشرة مختلطة</p>
+        <p class="mt-1">توازن بين فعالية مقاومة الرائحة ومضادات الأكسدة لتقليل الشوائب.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+        <p class="font-semibold text-primary-700">مستهلك يبحث عن نتائج سريعة</p>
+        <p class="mt-1">إضافة مقشرات لطيفة (PHA) بتركيز منخفض لتسريع توحيد اللون.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h3 class="text-lg font-bold text-primary-700">توجهات السوق والاستخدامات B2C</h3>
+    <ul class="mt-3 space-y-2 text-sm text-slate-600">
+      <li>- زيادة الطلب على منتجات تفتيح الإبط مع مقاومة العرق قبل المناسبات والسفر.</li>
+      <li>- فئات تفضل أحجام السفر 50-75 مل مع روائح فاكهية خفيفة أو بدون عطر.</li>
+      <li>- محتوى تثقيفي على العبوة حول روتين العناية (تنظيف، ترطيب، تفتيح).</li>
+    </ul>
+  </section>
+
+  <section class="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
     <h3 class="text-lg font-bold text-primary-700">ميزة B2B</h3>
     <p class="mt-2 text-sm text-slate-600">
-      هل ترغب في إطلاق علامتك التجارية الخاصة لمزيل عرق تفتيح؟ لدينا التركيبة الجاهزة ودعم كامل للتغليف.
+      هل ترغب في إطلاق علامتك التجارية الخاصة لمزيل عرق تفتيح؟ لدينا تركيبات جاهزة، دعم للتغليف، وتوسيم عربي/إنجليزي متوافق مع متطلبات GCC.
     </p>
   </section>
 
@@ -70,5 +128,8 @@ const productSchema = {
 
   <script type="application/ld+json">
     {JSON.stringify(productSchema)}
+  </script>
+  <script type="application/ld+json">
+    {JSON.stringify(faqSchema)}
   </script>
 </MainLayout>
